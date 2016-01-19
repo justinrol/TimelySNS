@@ -39,9 +39,4 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper{
             c.moveToFirst();
         return c;
     }
-
-    public void removeAllEntries(SQLiteDatabase db){
-        
-    }
-
 }

@@ -2,20 +2,13 @@ package com.example.justin.alarmclockv2;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.Cursor;
-import android.inputmethodservice.Keyboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
-import android.view.Gravity;
 import android.widget.Button;
 import android.content.Intent;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextClock;
 import android.widget.TextView;
-import android.widget.TableRow.LayoutParams;
 public class MainActivity extends AppCompatActivity {
 
     SQLiteDatabase db;
