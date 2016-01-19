@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.EditText;
+
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
     SQLiteDatabase db;
@@ -22,24 +26,32 @@ public class MainActivity extends AppCompatActivity {
         newWindowbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, myPreviousRecords.class));
+                startActivity(new Intent(MainActivity.this, RecordsPage.class));
             }
         });
 
         Button addBtn = (Button) findViewById(R.id.addBtn);
-        addBtn.setOnClickListener(new View.OnClickListener(){
+        addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                TextView messageView = (TextView)findViewById(R.id.messageTextView);
-                TextClock clock = (TextClock)findViewById(R.id.clock);
+            public void onClick(View v) {
+                TextView messageView = (TextView) findViewById(R.id.messageEditText);
+                TextClock clock = (TextClock) findViewById(R.id.clock);
 
                 String message = messageView.getText().toString();
                 String currentTime = clock.getText().toString();
 
-                add(message,currentTime);
+                add(message, currentTime);
 
                 messageView.setText("");
 
+            }
+        });
+
+        final EditText editText = (EditText) findViewById(R.id.messageEditText);
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText("");
             }
         });
 
@@ -53,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
         ContentValues values = new ContentValues();
         values.put("content",message);
         values.put("time", time);
-        db.insert("messageTable",null,values);
+        db.insert("messageTable", null, values);
     }
-
-
 }

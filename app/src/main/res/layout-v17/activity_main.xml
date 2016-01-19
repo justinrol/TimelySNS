@@ -27,7 +27,7 @@
         android:id="@+id/addBtn"
         android:background="@drawable/roundrectangle"
         android:layout_marginBottom="25dp"
-        android:layout_above="@+id/messageTextView"
+        android:layout_above="@+id/messageEditText"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -36,7 +36,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="What was it?"
         android:textColor="#ecf0f1"
-        android:id="@+id/messageTextView"
+        android:id="@+id/messageEditText"
         android:textAlignment="center"
         android:background="@drawable/roundrectangle"
         android:layout_alignParentBottom="true"

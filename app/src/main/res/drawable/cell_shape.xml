@@ -13,7 +13,13 @@
         />
 
     <stroke
-        android:width="2dp"
-        android:color="#34495e"/>
+        android:width="3dp"
+        android:color="#bdc3c7"/>
+
+    <padding
+        android:left="6dp"
+        android:top="6dp"
+        android:right="6dp"
+        android:bottom="6dp"/>
 
 </shape>

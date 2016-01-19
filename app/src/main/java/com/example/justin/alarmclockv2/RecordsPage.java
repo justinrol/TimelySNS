@@ -11,9 +11,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Button;
+import java.util.ArrayList;
 
-
-public class myPreviousRecords extends AppCompatActivity {
+public class RecordsPage extends AppCompatActivity {
 
     TableLayout table_layout;
     SQLiteDatabase db;
@@ -24,7 +24,7 @@ public class myPreviousRecords extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_previous_records);
         table_layout = (TableLayout)findViewById(R.id.tableLayout);
-        helper = new MySQLiteOpenHelper(myPreviousRecords.this,"Messages.db",null,1);
+        helper = new MySQLiteOpenHelper(RecordsPage.this,"Messages.db",null,1);
         buildTable();
 
         Button rmBtn = (Button)findViewById(R.id.removeBtn);
@@ -51,18 +51,35 @@ public class myPreviousRecords extends AppCompatActivity {
             TableRow row = new TableRow(this);
             row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
 
-            for (int j = 0; j < columns; j++) {
-                TextView tv = new TextView(this);
-                tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
-                tv.setBackgroundResource(R.drawable.cell_shape);
-                tv.setGravity(Gravity.CENTER);
-                tv.setTextSize(18);
-                tv.setTextColor(Color.WHITE);
-                tv.setText(c.getString(j));
-                row.addView(tv);
-            }
+
+//            for (int j = 0; j < columns; j++) {
+//                content = content + " at " + c.getString(j);
+//            }
+
+            String content = c.getString(0) + " at " + c.getString(1);
+
+            TextView tv = new TextView(this);
+            TableRow.LayoutParams tableRowParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+
+            int topMargin = 3;
+            int bottomMargin = 3;
+
+            tableRowParams.setMargins(0,topMargin,0,bottomMargin);
+
+            tv.setLayoutParams(tableRowParams);
+
+            tv.setBackgroundResource(R.drawable.cell_shape);
+            tv.setGravity(Gravity.CENTER);
+            tv.setTextSize(18);
+            tv.setTextColor(Color.WHITE);
+            tv.setText(content);
+
+            row.addView(tv);
+
             c.moveToNext();
             table_layout.addView(row);
+
+
         }
         helper.close();
     }

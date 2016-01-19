@@ -12,8 +12,12 @@
             android:bottomRightRadius = "8dp"
             />
 
+        <padding
+            android:left="7dp"
+            android:bottom="7dp"
+            android:right="7dp"
+            android:top="7dp"/>
         <stroke
             android:width="5dp"
             android:color="#f39c12"/>
-
 </shape>

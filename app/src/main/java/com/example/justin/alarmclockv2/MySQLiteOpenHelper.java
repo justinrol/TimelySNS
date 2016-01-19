@@ -33,7 +33,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper{
     }
 
     public Cursor readEntry(SQLiteDatabase db){
-        String[] allColumns = new String[] {"_id","content","time"};
+        String[] allColumns = new String[] {"content","time"};
         Cursor c = db.query("messageTable",allColumns,null,null,null,null,null);
         if(c!=null)
             c.moveToFirst();
